@@ -107,6 +107,16 @@
 			hi {
 				font-size: 1.4em;
 			}
+			
+			#textBox {
+				width: 300px;
+				height: 355px;
+				overflow: auto;
+				border: 1px solid gray;
+				padding: 2px;
+				text-align: justify;
+				background: transparent;
+			}
 		</style>
 		
 		<?
@@ -248,24 +258,24 @@
 						</div>
 					</div>
 					<div style="float:left; margin-left: 10px">
-						<textarea readonly="readonly" style="height:360px; width:300px; resize:none; overflow:hidden">
-						<?php
-							if(!empty($img_description)){
-						?>
-						<?=$img_description['created']?>
-						
-						<?=$img_description['description']?>
-						<?php
-							}
-							else
-							{
-						?>
-							<< 이미지를 클릭하면 설명을 볼수 있습니다.
-						<?php
-							}
-						?>
-						</textarea>
+						<div id="textBox">
+							<?php
+								if(!empty($img_description)){
+							?>
+							<?=$img_description['created']?>
+							<?=$img_description['description']?>
+							<?php
+								}
+								else
+								{
+							?>
+								<< 이미지를 클릭하면 설명을 볼수 있습니다.
+							<?php
+								}
+							?>
+						</div>
 					</div>
+					
 					<!-- 이미지 갤러리 끝 -->
 					
 					<br><br>

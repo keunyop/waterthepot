@@ -15,11 +15,20 @@
 	mysql_query("set session character_set_results=utf8;");
 	mysql_query("set session character_set_client=utf8;");
 
+	// 메인 리스트 관련 테이블 조회
 	if(!empty($_GET['id']))
 	{	
 		$sql="SELECT * FROM plant WHERE id = ".$_GET['id'];
 		$result = mysql_query($sql);
 		$topic = mysql_fetch_assoc($result);
+	}
+	
+	// 이미지 갤러리 관련 테이블 조회
+	if (!empty($_GET['img_id']))
+	{
+		$sql="SELECT * FROM img_detail WHERE plant_id = ".$_GET['id']. " and img_id = ".$_GET['img_id'];
+		$img_result = mysql_query($sql);
+		$img_description = mysql_fetch_assoc($img_result);
 	}
 ?>
 
@@ -97,6 +106,16 @@
 			}
 			hi {
 				font-size: 1.4em;
+			}
+			
+			#textBox {
+				width: 300px;
+				height: 355px;
+				overflow: auto;
+				border: 1px solid gray;
+				padding: 2px;
+				text-align: justify;
+				background: transparent;
 			}
 		</style>
 		
@@ -208,7 +227,7 @@
 				<?php
 					if(!empty($topic)){
 				?>
-
+				
 				<h2><?=$topic['name']?></h2>
 
 				<div class="description">
@@ -218,14 +237,14 @@
 					<br><br>
 			
 					<!-- 이미지 갤러리 시작 -->
-					<div id="show" class="slideshow" style="margin-left:0">
+					<div id="show" class="slideshow" style="float:left">
 						<div class="slideshow-images">
-							<a href="#"><img id="slide-0" src="images/gallery/data/images/20130402_01.jpg" alt="2013-04-02" title="2013-04-02" /></a>
-							<a href="#"><img id="slide-1" src="images/gallery/data/images/20130402_02.jpg" alt="2013-04-02" title="2013-04-02" /></a>
-							<a href="#"><img id="slide-2" src="images/gallery/data/images/20130531.jpg" alt="2013-05-31" title="2013-05-31" /></a>
-							<a href="#"><img id="slide-3" src="images/gallery/data/images/20130608_01.jpg" alt="2013-06-08" title="2013-06-08" /></a>
-							<a href="#"><img id="slide-4" src="images/gallery/data/images/20130608_02.jpg" alt="2013-06-08" title="2013-06-08" /></a>
-							<a href="#"><img id="slide-5" src="images/gallery/data/images/20130608_03.jpg" alt="2013-06-08" title="2013-06-08" /></a>
+							<a href="?id=1&img_id=1"><img id="slide-0" src="images/gallery/data/images/20130402_01.jpg" alt="2013-04-02" title="2013-04-02" /></a>
+							<a href="?id=1&img_id=2"><img id="slide-1" src="images/gallery/data/images/20130402_02.jpg" alt="2013-04-02" title="2013-04-02" /></a>
+							<a href="?id=1&img_id=3"><img id="slide-2" src="images/gallery/data/images/20130531.jpg" alt="2013-05-31" title="2013-05-31" /></a>
+							<a href="?id=1&img_id=4"><img id="slide-3" src="images/gallery/data/images/20130608_01.jpg" alt="2013-06-08" title="2013-06-08" /></a>
+							<a href="?id=1&img_id=5"><img id="slide-4" src="images/gallery/data/images/20130608_02.jpg" alt="2013-06-08" title="2013-06-08" /></a>
+							<a href="?id=1&img_id=6"><img id="slide-5" src="images/gallery/data/images/20130608_03.jpg" alt="2013-06-08" title="2013-06-08" /></a>
 						</div>
 						<div class="slideshow-thumbnails">
 							<ul>
@@ -234,10 +253,29 @@
 								<li><a href="#slide-2"><img src="images/gallery/data/thumbnails/20130531.jpg" alt="2013-05-31" /></a></li>
 								<li><a href="#slide-3"><img src="images/gallery/data/thumbnails/20130608_01.jpg" alt="2013-06-08" /></a></li>
 								<li><a href="#slide-4"><img src="images/gallery/data/thumbnails/20130608_02.jpg" alt="2013-06-08" /></a></li>
-								<li><a href="#slide-3"><img src="images/gallery/data/thumbnails/20130608_03.jpg" alt="2013-06-08" /></a></li>
+								<li><a href="#slide-5"><img src="images/gallery/data/thumbnails/20130608_03.jpg" alt="2013-06-08" /></a></li>
 							</ul>
 						</div>
 					</div>
+					<div style="float:left; margin-left: 10px">
+						<div id="textBox">
+							<?php
+								if(!empty($img_description)){
+							?>
+							<?=$img_description['created']?>
+							<?=$img_description['description']?>
+							<?php
+								}
+								else
+								{
+							?>
+								<< 이미지를 클릭하면 설명을 볼수 있습니다.
+							<?php
+								}
+							?>
+						</div>
+					</div>
+					
 					<!-- 이미지 갤러리 끝 -->
 					
 					<br><br>
