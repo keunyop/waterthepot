@@ -238,24 +238,7 @@
 			
 					<!-- 이미지 갤러리 시작 -->
 					<div id="show" class="slideshow" style="float:left">
-						<div class="slideshow-images">
-							<a href="?id=1&img_id=1"><img id="slide-0" src="images/gallery/data/images/20130402_01.jpg" alt="2013-04-02" title="2013-04-02" /></a>
-							<a href="?id=1&img_id=2"><img id="slide-1" src="images/gallery/data/images/20130402_02.jpg" alt="2013-04-02" title="2013-04-02" /></a>
-							<a href="?id=1&img_id=3"><img id="slide-2" src="images/gallery/data/images/20130531.jpg" alt="2013-05-31" title="2013-05-31" /></a>
-							<a href="?id=1&img_id=4"><img id="slide-3" src="images/gallery/data/images/20130608_01.jpg" alt="2013-06-08" title="2013-06-08" /></a>
-							<a href="?id=1&img_id=5"><img id="slide-4" src="images/gallery/data/images/20130608_02.jpg" alt="2013-06-08" title="2013-06-08" /></a>
-							<a href="?id=1&img_id=6"><img id="slide-5" src="images/gallery/data/images/20130608_03.jpg" alt="2013-06-08" title="2013-06-08" /></a>
-						</div>
-						<div class="slideshow-thumbnails">
-							<ul>
-								<li><a href="#slide-0"><img src="images/gallery/data/thumbnails/20130402_01.jpg" alt="2013-04-02" /></a></li>
-								<li><a href="#slide-1"><img src="images/gallery/data/thumbnails/20130402_02.jpg" alt="2013-04-02" /></a></li>
-								<li><a href="#slide-2"><img src="images/gallery/data/thumbnails/20130531.jpg" alt="2013-05-31" /></a></li>
-								<li><a href="#slide-3"><img src="images/gallery/data/thumbnails/20130608_01.jpg" alt="2013-06-08" /></a></li>
-								<li><a href="#slide-4"><img src="images/gallery/data/thumbnails/20130608_02.jpg" alt="2013-06-08" /></a></li>
-								<li><a href="#slide-5"><img src="images/gallery/data/thumbnails/20130608_03.jpg" alt="2013-06-08" /></a></li>
-							</ul>
-						</div>
+						<?=$topic['img_gallery']?>
 					</div>
 					<div style="float:left; margin-left: 10px">
 						<div id="textBox">
