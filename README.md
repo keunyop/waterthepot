@@ -3,8 +3,6 @@ WaterThePot
 
 24/7 real-time streaming system to watch the pot grows.
 
-http://www.waterthepot.com
-
 
 ![WaterThePot](https://postfiles.pstatic.net/20130404_283/samurae83_1365083955311PyA4e_JPEG/waterthepot.jpg?type=w2)
 
